@@ -13,7 +13,7 @@
 - 반려동물의 정보를 저장, 수정, 삭제할 수 있습니다.
 - 체중 추이를 그래프로 건강 상태를 확인할 수 있습니다.
 <br>
-<img src="https://github.com/dalyeon2/CareBout/assets/99587191/6c70286d-c605-4135-87c6-a139bae98fd0" width="170" height="320"/>   
+<img src="https://github.com/tmdwid2/CareBout/assets/99587191/6c70286d-c605-4135-87c6-a139bae98fd0" width="170" height="320"/>   
   &emsp;
 <img src="https://github.com/dalyeon2/CareBout/assets/99587191/be364927-dca3-49a5-ae6e-9071c4f34b4b" width="170" height="320"/>   
   &emsp;
