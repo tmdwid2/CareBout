@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bgLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".view.medical.MedicalActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/titleBarText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/black"
+            android:text="CARE 'BOUT"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="17dp"
+        android:backgroundTint="@color/main_color"
+        android:contentDescription="정보 작성탭 연결 메뉴"
+        android:tint="@color/white"
+        android:visibility="visible"
+
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/mainFrame"
+        app:layout_constraintEnd_toEndOf="@+id/mainFrame"
+        app:srcCompat="@drawable/ic_add" />
+
+
+    <!--    다른 액티비티를 넘나들 수 있게 공통의 하단탭바를 만들었습니다!   -->
+    <include
+        android:id="@+id/bottomTapBarOuter"
+        layout="@layout/bottom_tap"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="@id/bgLayout" />
+
+
+    <!-- 팝업 메뉴 레이아웃 -->
+
+    <FrameLayout
+        android:id="@+id/mainFrame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomTapBarOuter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        android:background="@color/bgColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/mediListButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="약 목록"
+                app:layout_constraintBottom_toTopOf="@+id/inocListButton"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/todoListButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="데일리 케어 목록"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/inocListButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="접종 목록"
+                app:layout_constraintBottom_toTopOf="@+id/todoListButton"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/clinicListButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="검진 목록"
+                app:layout_constraintBottom_toTopOf="@+id/mediListButton"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/popup_menu"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_menu"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/fab"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/menu_item_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onMenuItemClick"
+            android:padding="16dp"
+            android:textSize="13dp"
+            android:textColor="@color/textColor"
+            android:text="\uD83E\uDE7A🩺 진료 내역" />
+
+        <TextView
+            android:id="@+id/menu_item_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onMenuItemClick"
+            android:padding="16dp"
+            android:textSize="13dp"
+            android:textColor="@color/textColor"
+            android:text="\uD83D\uDC89💉 접종/구충 내역" />
+
+        <TextView
+            android:id="@+id/menu_item_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onMenuItemClick"
+            android:padding="16dp"
+            android:textSize="13dp"
+            android:textColor="@color/textColor"
+            android:text="\uD83D\uDC8A💊 약처방" />
+
+        <TextView
+            android:id="@+id/menu_item_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onMenuItemClick"
+            android:padding="16dp"
+            android:textSize="13dp"
+            android:textColor="@color/textColor"
+            android:text="\uD83D\uDCC3📃 데일리 케어" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/popup_menu_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88000000"
+            android:visibility="gone">
+
+        </FrameLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
